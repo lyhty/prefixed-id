@@ -24,10 +24,11 @@ $human->id; // Prints 1
 
 The package automatically binds the models set up in the config file to use prefixes in routing.
 
-Model with a prefixed id set up would behave in a following way:
-`project.test/humans/H-1`
+### Model specific binding
 
-web.php
+A model with a prefixed id set up would behave in a following way: `project.test/humans/H-1`
+
+**web.php**
 
 ```php
 use Illuminate\Support\Facades\Route;
@@ -35,10 +36,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('humans/{human}', [HumanController::class, 'show']);
 ```
 
-> You can apply an optional prefix to the binding in the config. E.g. `humans/{pid.human}`, 'pid.' being
+> You can apply an optional prefix to the binding in the config. E.g. `humans/{pid_human}` with `pid_` being
 > the applied prefix. This would keep the Laravel's default binding to the model's key without the prefix.
 
-HumanController.php
+**HumanController.php**
 
 ```php
 public function show(Request $request, Human $human)
@@ -49,10 +50,11 @@ public function show(Request $request, Human $human)
 
 As you can see, setting up the model binding works the same as without the prefixed id.
 
-The package also provides more generic routing:
-`project.test/resources/D-1`
+### Generic model binding
 
-web.php
+The package also provides more generic routing. An example follows:
+
+**web.php**
 
 ```php
 use Illuminate\Support\Facades\Route;
@@ -62,16 +64,19 @@ Route::get('resources/{prefixedModel}', [ResourceController::class, 'show']);
 
 > You can change the route binding name in the config.
 
-ResourceController.php
+**ResourceController.php**
 
 ```php
 public function show(Request $request, Model $model)
 {
-    $model->pid; // Prints "D-1"
+    //
 }
 ```
 
-This way, you can have one route for returning any type of a model, as long as it is
+With a route setup like this, both `project.test/resources/H-1` and `project.test/resources/D-1` would work and 
+would return a Human model instance and a Dog model instance respectively.
+
+This way you can have one route for returning any type of a model, as long as it is
 set up in config.
 
 ## Prefixed id helper class
@@ -86,4 +91,3 @@ $dog = PrefixedId::findModel('D-1');
 ```
 
 The find methods would return instances of `App\Models\Human` and `App\Models\Dog` respectively.
-What the helper class returns are based on the prefixes connected to the models in the config file.
