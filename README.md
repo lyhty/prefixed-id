@@ -3,7 +3,12 @@
 This package will provide models the ability to have a prefixed id in your system, while
 still having the database value being just the usual id.
 
-## Config values
+## Config
+
+Run following command to publish the config file:
+```bash
+php artisan vendor:publish --provider="SirMathays\PrefixedId\PrefixedIdServiceProvider"
+```
 
 You should set up the models that you want to have ids with prefixes, you should also apply
 HasPrefixedId trait to the model.
