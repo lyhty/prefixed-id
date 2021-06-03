@@ -11,7 +11,7 @@ use LogicException;
 
 class PrefixedIdCast implements CastsInboundAttributes, SerializesCastableAttributes
 {
-    protected ?string $class = null;
+    protected ?string $class;
 
     /**
      * The PrefixedIdCast constructor.
@@ -20,11 +20,11 @@ class PrefixedIdCast implements CastsInboundAttributes, SerializesCastableAttrib
      */
     public function __construct(string $class = null)
     {
-        // If class is set, check whether it is literal class
-        // name, or a morph name. If neither is true, set it 
-        // as 'false', and throw an exception.
+        // If class is set, check whether it is an actual 
+        // class name, or a morph name. If neither is true, 
+        // throw an exception.
         if (!is_null($class)) {
-            $this->class = class_exists($class)
+            $class = class_exists($class)
                 ? $class
                 : (Relation::getMorphedModel($class) ?? false);
 
@@ -32,6 +32,8 @@ class PrefixedIdCast implements CastsInboundAttributes, SerializesCastableAttrib
                 throw new LogicException("Invalid class name given");
             }
         }
+
+        $this->class = $class;
     }
 
     /**
