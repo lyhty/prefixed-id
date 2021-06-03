@@ -42,6 +42,16 @@ class PrefixedId
     }
 
     /**
+     * Return boolean value whether auto casting is active.
+     *
+     * @return bool
+     */
+    public function shouldAutoCast(): bool
+    {
+        return $this->config['auto_casting'] ?? false;
+    }
+
+    /**
      * Find prefix for given class.
      *
      * @param mixed $className

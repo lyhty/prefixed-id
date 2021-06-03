@@ -3,7 +3,6 @@
 namespace SirMathays\PrefixedId;
 
 use SirMathays\PrefixedId\Facades\PrefixedId;
-use SirMathays\PrefixedId\PrefixedIdScope;
 use Illuminate\Support\Str;
 use LogicException;
 
@@ -48,6 +47,13 @@ trait HasPrefixedId
     public function initializeHasPrefixedId(): void
     {
         $this->idPrefix = static::getIdPrefix();
+
+        if (
+            PrefixedId::shouldAutoCast() && 
+            !isset($this->casts[$key = $this->getKeyName()])
+        ) {
+            $this->casts[$key] = PrefixedIdCast::class;
+        }
     }
 
     /**

@@ -10,6 +10,8 @@ return [
         
     ],
 
+    'auto_casting' => true,
+
     'models' => [
         // 'M' => \App\Models\Model::class,
     ],

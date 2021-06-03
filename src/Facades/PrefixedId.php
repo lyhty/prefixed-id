@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Illuminate\Database\Eloquent\Model findOrFailModel($prefixedId, string $wishedClass = null)
  * @method static string|null matchForeignKey($keyName)
  * @method static bool isPrefixedId($prefixedId)
+ * @method static bool shouldAutoCast()
  * 
  * @see \SirMathays\PrefixedId\PrefixedId
  */
