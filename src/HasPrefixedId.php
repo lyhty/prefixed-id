@@ -2,9 +2,9 @@
 
 namespace SirMathays\PrefixedId;
 
-use SirMathays\PrefixedId\Facades\PrefixedId;
 use Illuminate\Support\Str;
 use LogicException;
+use SirMathays\PrefixedId\Facades\PrefixedId;
 
 /**
  * @method static static findWithPrefixedId($pid, $columns = ['*'])

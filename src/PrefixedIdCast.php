@@ -2,38 +2,31 @@
 
 namespace SirMathays\PrefixedId;
 
-use SirMathays\PrefixedId\Facades\PrefixedId;
 use Exception;
 use Illuminate\Contracts\Database\Eloquent\CastsInboundAttributes;
 use Illuminate\Contracts\Database\Eloquent\SerializesCastableAttributes;
-use Illuminate\Database\Eloquent\Relations\Relation;
 use LogicException;
+use SirMathays\PrefixedId\Facades\PrefixedId;
+
+use function SirMathays\PrefixedId\resolve_model_class;
 
 class PrefixedIdCast implements CastsInboundAttributes, SerializesCastableAttributes
 {
-    protected ?string $class;
+    protected ?string $modelClassName = null;
 
     /**
      * The PrefixedIdCast constructor.
      *
-     * @param string|null $class
+     * @param string|null $modelClassName
      */
-    public function __construct(string $class = null)
+    public function __construct(string $modelClassName = null)
     {
         // If class is set, check whether it is an actual 
         // class name, or a morph name. If neither is true, 
         // throw an exception.
-        if (!is_null($class)) {
-            $class = class_exists($class)
-                ? $class
-                : (Relation::getMorphedModel($class) ?? false);
-
-            if ($class === false) {
-                throw new LogicException("Invalid class name given");
-            }
+        if (!is_null($modelClassName)) {
+            $this->modelClassName = resolve_model_class($modelClassName);
         }
-
-        $this->class = $class;
     }
 
     /**
@@ -90,8 +83,8 @@ class PrefixedIdCast implements CastsInboundAttributes, SerializesCastableAttrib
     protected function resolveModelClass($model, string $key)
     {
         // If class is given in cast setup.
-        if ($this->class) {
-            return $this->class;
+        if ($this->modelClassName) {
+            return $this->modelClassName;
         }
 
         // If key matches the model key, return the model class.

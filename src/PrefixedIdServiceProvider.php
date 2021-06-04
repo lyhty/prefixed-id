@@ -2,11 +2,11 @@
 
 namespace SirMathays\PrefixedId;
 
-use SirMathays\PrefixedId\Facades\PrefixedId as Facade;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
+use SirMathays\PrefixedId\Facades\PrefixedId as Facade;
 
 class PrefixedIdServiceProvider extends ServiceProvider
 {

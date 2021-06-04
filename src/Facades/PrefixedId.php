@@ -2,8 +2,8 @@
 
 namespace SirMathays\PrefixedId\Facades;
 
-use SirMathays\PrefixedId\PrefixedId as BasePrefixedId;
 use Illuminate\Support\Facades\Facade;
+use SirMathays\PrefixedId\PrefixedId as BasePrefixedId;
 
 /**
  * @method static array modelClasses()
