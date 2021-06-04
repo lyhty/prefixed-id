@@ -57,8 +57,6 @@ class PrefixedIdServiceProvider extends ServiceProvider
                     fn ($str) => $str->start($bindPrefix)
                 );
 
-            dump($bindName);
-
             Route::bind(
                 $bindName,
                 fn ($prefixedId) => $className::pidFindOrFail(strtoupper($prefixedId))
