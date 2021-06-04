@@ -4,6 +4,7 @@ namespace SirMathays\PrefixedId;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use SirMathays\PrefixedId\Facades\PrefixedId as Facade;
@@ -26,15 +27,20 @@ class PrefixedIdServiceProvider extends ServiceProvider
             fn () => new PrefixedId($this->app['config']['prefixed_id'])
         );
 
-        $this->handleModelRouteBindings();
+        $this->registerModelRouteBindings();
+    }
+
+    public function boot()
+    {
+        $this->bootValidatorExtension();
     }
 
     /**
-     * Handle model route bindings.
+     * Register model route bindings.
      *
      * @return void
      */
-    protected function handleModelRouteBindings()
+    protected function registerModelRouteBindings(): void
     {
         $bindPrefix = Arr::get($this->app['config'], 'prefixed_id.routing.bind_prefix');
 
@@ -51,6 +57,8 @@ class PrefixedIdServiceProvider extends ServiceProvider
                     fn ($str) => $str->start($bindPrefix)
                 );
 
+            dump($bindName);
+
             Route::bind(
                 $bindName,
                 fn ($prefixedId) => $className::pidFindOrFail(strtoupper($prefixedId))
@@ -60,10 +68,22 @@ class PrefixedIdServiceProvider extends ServiceProvider
         $genericBindName = Arr::get($this->app['config'], 'prefixed_id.routing.generic_bind_name');
 
         if (!is_null($genericBindName)) {
-            Route::bind(
-                $genericBindName, 
-                fn ($prefixedId) => Facade::findOrFailModel($prefixedId)
-            );
+            Route::bind($genericBindName, fn ($prefixedId) => (
+                Facade::findOrFailModel($prefixedId)
+            ));
         }
+    }
+
+    /**
+     * Register validator extension.
+     *
+     * @return void
+     */
+    protected function bootValidatorExtension(): void
+    {
+        // Register validation extension.
+        Validator::extend('pid_exists', function ($attribute, $value, $parameters) {
+            return (new PrefixedIdExists(data_get($parameters, 0)))->passes($attribute, $value);
+        });
     }
 }
