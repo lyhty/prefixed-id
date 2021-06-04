@@ -21,7 +21,10 @@
     "autoload": {
         "psr-4": {
             "SirMathays\\PrefixedId\\": "src"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "scripts": {
         "test": "vendor/bin/phpunit",
