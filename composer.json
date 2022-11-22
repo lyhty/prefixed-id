@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "SirMathays\\PrefixedId\\": "src"
+            "Lyhty\\PrefixedId\\": "src"
         },
         "files": [
             "src/helpers.php"
@@ -35,10 +35,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SirMathays\\PrefixedId\\PrefixedIdServiceProvider"
+                "Lyhty\\PrefixedId\\PrefixedIdServiceProvider"
             ],
             "aliases": {
-                "PrefixedId": "SirMathays\\PrefixedId\\Facades\\PrefixedId"
+                "PrefixedId": "Lyhty\\PrefixedId\\Facades\\PrefixedId"
             }
         }
     },

@@ -1,12 +1,12 @@
 <?php
 
-namespace SirMathays\PrefixedId;
+namespace Lyhty\PrefixedId;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
-use SirMathays\PrefixedId\Facades\PrefixedId;
+use Lyhty\PrefixedId\Facades\PrefixedId;
 
 class PrefixedIdScope implements Scope
 {

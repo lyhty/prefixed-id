@@ -1,13 +1,13 @@
 <?php
 
-namespace SirMathays\PrefixedId;
+namespace Lyhty\PrefixedId;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use SirMathays\PrefixedId\Facades\PrefixedId as Facade;
+use Lyhty\PrefixedId\Facades\PrefixedId as Facade;
 
 class PrefixedIdServiceProvider extends ServiceProvider
 {

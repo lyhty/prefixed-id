@@ -1,14 +1,14 @@
 <?php
 
-namespace SirMathays\PrefixedId;
+namespace Lyhty\PrefixedId;
 
 use Exception;
 use Illuminate\Contracts\Database\Eloquent\CastsInboundAttributes;
 use Illuminate\Contracts\Database\Eloquent\SerializesCastableAttributes;
 use LogicException;
-use SirMathays\PrefixedId\Facades\PrefixedId;
+use Lyhty\PrefixedId\Facades\PrefixedId;
 
-use function SirMathays\PrefixedId\resolve_model_class;
+use function Lyhty\PrefixedId\resolve_model_class;
 
 class PrefixedIdCast implements CastsInboundAttributes, SerializesCastableAttributes
 {

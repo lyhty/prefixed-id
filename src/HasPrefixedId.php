@@ -1,10 +1,10 @@
 <?php
 
-namespace SirMathays\PrefixedId;
+namespace Lyhty\PrefixedId;
 
 use Illuminate\Support\Str;
 use LogicException;
-use SirMathays\PrefixedId\Facades\PrefixedId;
+use Lyhty\PrefixedId\Facades\PrefixedId;
 
 /**
  * @method static static findWithPrefixedId($pid, $columns = ['*'])

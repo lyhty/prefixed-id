@@ -1,6 +1,6 @@
 <?php
 
-namespace SirMathays\PrefixedId;
+namespace Lyhty\PrefixedId;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
 use LogicException;

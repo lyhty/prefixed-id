@@ -13,10 +13,10 @@ return [
     'auto_casting' => true,
 
     'models' => [
-        // 'M' => \App\Models\Model::class,
+        // 'U' => \App\Models\User::class,
     ],
 
     'foreign_keys' => [
-        // 'model_id' => \App\Models\Model::class,
+        // 'user_id' => \App\Models\User::class,
     ]
 ];

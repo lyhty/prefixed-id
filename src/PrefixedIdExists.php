@@ -1,9 +1,9 @@
 <?php
 
-namespace SirMathays\PrefixedId;
+namespace Lyhty\PrefixedId;
 
-use SirMathays\PrefixedId\Facades\PrefixedId;
 use Illuminate\Contracts\Validation\Rule;
+use Lyhty\PrefixedId\Facades\PrefixedId;
 
 class PrefixedIdExists implements Rule
 {

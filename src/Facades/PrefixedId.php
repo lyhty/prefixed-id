@@ -1,9 +1,9 @@
 <?php
 
-namespace SirMathays\PrefixedId\Facades;
+namespace Lyhty\PrefixedId\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use SirMathays\PrefixedId\PrefixedId as BasePrefixedId;
+use Lyhty\PrefixedId\PrefixedId as BasePrefixedId;
 
 /**
  * @method static array modelClasses()
@@ -16,7 +16,7 @@ use SirMathays\PrefixedId\PrefixedId as BasePrefixedId;
  * @method static bool isPrefixedId($prefixedId)
  * @method static bool shouldAutoCast()
  * 
- * @see \SirMathays\PrefixedId\PrefixedId
+ * @see \Lyhty\PrefixedId\PrefixedId
  */
 class PrefixedId extends Facade
 {

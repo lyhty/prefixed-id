@@ -7,7 +7,7 @@ still having the database value being just the usual id.
 
 Run following command to publish the config file:
 ```bash
-php artisan vendor:publish --provider="SirMathays\PrefixedId\PrefixedIdServiceProvider"
+php artisan vendor:publish --provider="Lyhty\PrefixedId\PrefixedIdServiceProvider"
 ```
 
 You should set up the models that you want to have ids with prefixes, you should also apply
@@ -89,7 +89,7 @@ set up in config.
 You can utilize PrefixedId class to find instances in a following way:
 
 ```php
-use SirMathays\PrefixedId\Facades\PrefixedId;
+use Lyhty\PrefixedId\Facades\PrefixedId;
 
 $human = PrefixedId::findModel('H-1');
 $dog = PrefixedId::findModel('D-1');
