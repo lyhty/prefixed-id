@@ -1,5 +1,5 @@
 {
-    "name": "sirmathays/prefixed-id",
+    "name": "lyhty/prefixed-id",
     "description": "Package for adding prefixes to model keys in Laravel.",
     "keywords": [
         "laravel",
