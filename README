@@ -6,6 +6,7 @@ still having the database value being just the usual id.
 ## Config
 
 Run following command to publish the config file:
+
 ```bash
 php artisan vendor:publish --provider="Lyhty\PrefixedId\PrefixedIdServiceProvider"
 ```
