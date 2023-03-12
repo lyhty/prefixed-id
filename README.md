@@ -4,7 +4,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/lyhty/prefixed-id.svg?label=&style=flat-square&logo=packagist&logoColor=white)](https://packagist.org/packages/lyhty/prefixed-id)
 [![PHP](https://img.shields.io/packagist/php-v/lyhty/prefixed-id?style=flat-square&label=&logo=php&logoColor=white)](https://packagist.org/packages/lyhty/prefixed-id)
-[![Laravel](https://img.shields.io/static/v1?label=&message=^7.0||^8.0||^9.0&color=red&style=flat-square&logo=laravel&logoColor=white)](https://packagist.org/packages/lyhty/prefixed-id)
+[![Laravel](https://img.shields.io/static/v1?label=&message=^8.0%20...%20^10.0&color=red&style=flat-square&logo=laravel&logoColor=white)](https://packagist.org/packages/lyhty/prefixed-id)
 [![Total Downloads](https://img.shields.io/packagist/dt/lyhty/prefixed-id.svg?style=flat-square)](https://packagist.org/packages/lyhty/prefixed-id)
 [![License](https://img.shields.io/packagist/l/lyhty/prefixed-id.svg?style=flat-square)](https://packagist.org/packages/lyhty/prefixed-id)
 <!-- [![Tests](https://img.shields.io/github/workflow/status/lyhty/prefixed-id/Run%20tests?style=flat-square)](https://github.com/lyhty/prefixed-id/actions/workflows/php.yml) -->
